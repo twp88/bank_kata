@@ -3,6 +3,8 @@ describe ("BankAccount", function() {
   beforeEach(function(){
     bankAccount = new BankAccount();
     transactions = new Transactions();
+    now = new Now();
+    now.date();
   });
 
   it('should respond to the test', function() {
@@ -25,7 +27,7 @@ describe ("BankAccount", function() {
 
   it('should update leger when using transactions.updateLeger', function() {
     bankAccount.credit(10)
-    expect(bankAccount.leger[1]).toEqual(["Transaction number; 1||Amount credited; 10||Amount debited; 0||The balance is; 10"])
+    expect(bankAccount.leger[1]).toEqual(["Date; "+now.dat+"||Transaction number; 1||Amount credited; 10||Amount debited; 0||The balance is; 10"])
   });
 
   it('should call the transactions.updateleger function from an instance of bankAccount', function() {
